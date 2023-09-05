@@ -13,7 +13,7 @@
 ## 개요
 
 - [대회 준비](/pre-contest/README.md)   
-  - [문제와 셋 구성](/pre-contest/problemset-construction.md)
+  - [문제와 셋 구성](/pre-contest/problemset-construction.md) (D-21)
   - 디스크립션 (TODO)
   - 데이터 (TODO)
 - [대회 중](/in-contest/README.md)
