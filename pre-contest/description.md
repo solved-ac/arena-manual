@@ -108,7 +108,7 @@
 
 - **(리터럴)** (UCPC 가이드라인) 입력 설명에서, 정확히 어떤 문자열을 입력 또는 출력해야 하는 경우에는 붉은 고정폭 글씨로 강조합니다.
   - 강조를 위한 색상은 <span><code style="color:#e74c3c;">#e74c3c</code></span>를 사용합니다. 이 색상은 BOJ Stack에서 '창백한 빨강'입니다.
-    ![BOJ Stack 색상 선택기](./image-1.png)
+    ![BOJ Stack 색상 선택기](./image-1.png?raw=true)
   - **[예)](https://www.acmicpc.net/problem/28436)** (GA1 F)
     > 흰색 팀이 이긴다면 “<span><code style="color:#e74c3c;">WHITE</code></span>”, 검은색 팀이 이긴다면 “<span><code style="color:#e74c3c;">BLACK</code></span>”을 출력하세요.
 
