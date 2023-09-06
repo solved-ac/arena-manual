@@ -1,5 +1,5 @@
 # 대회 준비
 
 - [문제와 셋 구성](./problemset-construction.md) (D-21)
-- 디스크립션 (TODO)
+- [디스크립션](./description.md) (D-14)
 - 데이터 (TODO)
