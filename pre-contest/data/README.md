@@ -61,16 +61,10 @@ Generator, validator, checker 및 interactor는 `testlib.h`를 사용해야 합�
 
 - **(경고 해결)** Polygon 패키지에는 no tags, no statement 등을 포함한 모든 경고가 없어야 합니다. 단, 다음 예외를 허용합니다.
   - Solution '`<solution>`' uses unusual int128-like type on the line `<n>`
-- **(간결한 소스 코드)** Polygon에 작성하는 모든 코드는 검수에 용이하도록 매크로 및 `typedef` 등을 사용하지 말고 최대한 간결하게 작성합니다.
+- **(간결한 소스 코드)** Polygon에 작성하는 모든 코드는 검수에 용이하도록 매크로 등을 사용하지 말고 최대한 간결하게 작성합니다.
   - 매크로 및 템플릿의 사용은 다른 검수자가 이를 이해하는 데에 어려움을 주고, 검수 미비로 이어질 가능성이 높기 때문에 지양되어야 합니다.
   - 복잡한 로직은 최대한 많은 함수로 쪼갭니다.
   - 함수의 인자로 6개 이상의 변수를 받지 않으며, 필요한 경우 `struct` 등을 정의하여 사용합니다.
-  - 단, 자주 사용되는 다음 `typedef`는 예외로 둡니다.
-    - `long long` &rarr; `ll` 또는 `lli` 또는 `i64`.
-    - `long double` &rarr; `ld` 또는 `lld`.
-    - `__int128` &rarr; `i128`.
-    - `pair<int, int>` &rarr; `pii`.
-    - `pair<long long, long long>` &rarr; `pll`.
 
 이하의 내용이 경고를 해결하는 데에 도움이 될 수 있습니다.
 
