@@ -111,8 +111,8 @@ Validator는 문제 패키지에서 가장 실수가 발생하기 쉬운 곳 중
   - **안 좋은 예 2)** $1 \le T \le 1\,000$ &rarr; `inf.readInt(1, 1'000, "N")`: 번수명이 달라 검수 과정 중 헷갈릴 위험이 있습니다.
   - **안 좋은 예 3)** $1 \le N \le 1\,000$ &rarr; `inf.readInt(1, 1'000, "n")`: 이후 문제 수정 과정 중에 casing이 다른 $n$ 등의 변수가 등장할 수 있으므로, 대소문자도 지문에 적은 대로 적는 것이 권장됩니다.
   - **좋은 예 1)** $1 \le N \le 1\,000$ &rarr; `inf.readInt(1, 1'000, "N")`
-  - **좋은 예 2)** $1 \le a_{ij} \le 10^6$ &rarr; `inf.readInt(1, 1'000'000, "a_ij")`
-  - **좋은 예 3)** $1 \le a_{ij} \le 10^6$ &rarr; `inf.readInt(1, 1'000'000, format("a_(%d,%d)", i, j))`
+  - **좋은 예 2)** $1 \le a_{ij} \le 10^6$ &rarr; `inf.readInt(1, 1e6, "a_ij")`
+  - **좋은 예 3)** $1 \le a_{ij} \le 10^6$ &rarr; `inf.readInt(1, 1e6, format("a_(%d,%d)", i, j))`
 - 작성 중
 
 ### Checker 작성
