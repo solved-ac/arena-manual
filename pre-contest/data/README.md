@@ -49,7 +49,7 @@
 
 ## Polygon
 
-Generator, validator, checker 및 interactor는 `testlib.h`를 사용해야 합니다.
+Generator, validator, checker 및 interactor 준비에는 Codeforces의  [Polygon 플랫폼](https://polygon.codeforces.com/)과 `testlib.h`를 사용해야 합니다.
 
 - 참고: [Codeforces: Briefly about testlib.h](https://codeforces.com/testlib)
 - 참고: [Codeforces: Generators with testlib.h](https://codeforces.com/blog/entry/18291)
@@ -76,9 +76,11 @@ Generator, validator, checker 및 interactor는 `testlib.h`를 사용해야 합�
   - 예제에 사용하는 데이터
   - 데이터의 생성에 너무 오랜 시간이 걸려 Polygon에서 생성 시간 제한을 초과하는 데이터
 - Validator에 정의한 변수에서, 최댓값을 만족하는 데이터와 최솟값을 만족하는 데이터가 각각 하나 이상 있어야 합니다. 현재 문제의 제한 상 그런 데이터를 작성할 수 없다면, 문제의 제한을 변경하거나 명확히 합니다.
-  - **예)** 제한이 '간선의 개수 $N$과 정점의 개수 $M$에 대해 $1 \le N, M \le 10^5$'인 경우, $N=1$인 경우에 $M \le 0$이어야 하여 해당 데이터를 만들 수 없으므로, $N \ge 2$ 혹은 $M \ge 0$으로 수정.
+  - **예)** 제한이 '정점의 개수 $N$과 간선의 개수 $M$에 대해 $1 \le N, M \le 10^5$'인 경우, $N=1$인 경우에 $M \le 0$이어야 하여 해당 데이터를 만들 수 없으므로, $N \ge 2$ 혹은 $M \ge 0$으로 수정.
 
 ### Generator 작성
+
+- 참고: [Codeforces: Generators with testlib.h](https://codeforces.com/blog/entry/18291)
 
 - Multitest generator는 사용하면 안 됩니다.
   - 하나의 generator가 명확한 argument 없이 여러 전략의 데이터를 생성하면 안 됩니다.
@@ -96,6 +98,8 @@ Generator, validator, checker 및 interactor는 `testlib.h`를 사용해야 합�
     ```
 
 ### Validator 작성
+
+- 참고: [Codeforces: Validators with testlib.h](https://codeforces.com/blog/entry/18426)
 
 Validator는 문제 패키지에서 가장 실수가 발생하기 쉬운 곳 중 하나로, **검수 및 실수 탐지의 용이성을 제1 목표로 두고** 작성해야 합니다.
 
@@ -120,6 +124,11 @@ Validator는 문제 패키지에서 가장 실수가 발생하기 쉬운 곳 중
 - Checker는 줄 끝 공백에 대하여 관대하여야 합니다.
   - **예 1)** 정답이 '`Impossible`'이라면, '`Impossible`'과 '`Impossible `' 모두 정답으로 처리해야 합니다.
   - **예 2)** 정답이 '`1 2 3`'이라면, '`1 2 3`'과 '`1 2 3 `' 모두 정답으로 처리해야 합니다.
+- 입력 형식이 중요한 문제가 아닐 경우, checker 내에서 다음 함수를 사용하지 않습니다.
+  - `readEoln()`
+  - `readEof()`
+  - `readSpace()`
+  - 참고: 부록: Checker 작성 패턴 (TODO)
 - Checker는 참가자의 정답이 출제자의 정답보다 효율적인(정해가 틀리는) 사고가 발생할 가능성이 있음을 인지하고, `_fail` 판정을 사용하여야 합니다.
 
 ## 점검 사항
