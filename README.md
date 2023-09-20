@@ -23,3 +23,5 @@
   - 데이터 점검 (TODO)
 - [대회 종료 후](/post-contest/README.md)
   - 에디토리얼 (TODO)
+- [부록](/appendix/README.md)
+  - [testlib.h 비공식 문서](/appendix/testlib/README.md)
