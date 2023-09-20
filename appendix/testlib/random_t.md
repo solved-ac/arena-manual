@@ -189,7 +189,7 @@ $\texttt{from} < \texttt{to}$; $0 \le \texttt{size} \le \texttt{to}-\texttt{from
 
 최솟값이 `min_part`이고, 합이 `sum`이 되는 `size`개의 정수가 들어 있는 배열을 생성합니다. `min_part`가 주어지지 않으면, 최솟값은 1입니다.
 
-$\texttt{size} \ge 0$이어야 합니다. $\texttt{size}=0$이라면, $\texttt{sum}=0$이어야 합니다. $\texttt{min\\_part}\times\texttt{size}\le\texttt{sum}$이어야 합니다.
+$\texttt{size} \ge 0$이어야 합니다. $\texttt{size}=0$이라면, $\texttt{sum}=0$이어야 합니다. $\texttt{min\\\_part}\times\texttt{size}\le\texttt{sum}$이어야 합니다.
 
 ## 전역 유틸리티 메서드
 
@@ -200,4 +200,4 @@ $\texttt{size} \ge 0$이어야 합니다. $\texttt{size}=0$이라면, $\texttt{s
 - `__first`: 배열의 시작 반복자.
 - `__last`: 배열의 끝 반복자.
 
-배열 $\left[\texttt{\\_\\_first}, \texttt{\\_\\_last}\right)$를 무작위 순서로 섞습니다.
+배열 $\left[\texttt{\\\_\\\_first}, \texttt{\\\_\\\_last}\right)$를 무작위 순서로 섞습니다.
