@@ -46,5 +46,6 @@ inf.readEoln();
 inf.readEof();
 ```
 
+Validator의 경우 출제진이 생성한 입력은 위와 같이 검증해야 합니다. Checker에서 참가자의 입력을 검증할 때에는 위와 같이 하지 않아도 괜찮으며, 위와 같이 하지 않는 것이 오히려 권장됩니다. (TODO: Validator와 Checker에 대한 링크 걸기)
 
-(TODO)
+(TODO: InStream 메서드 설명)
