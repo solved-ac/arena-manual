@@ -39,7 +39,7 @@ Strict mode에서 위 데이터를 올바르게 읽는 코드는 다음과 같�
 
 ```cpp
 for (int i = 0; i < 5; i++) {
-    if (i !== 0) inf.readSpace();
+    if (i != 0) inf.readSpace();
     inf.readInt();
 }
 inf.readEoln();
