@@ -6,7 +6,6 @@ testlib.h version `0.9.40-SNAPSHOT`
 
 - [전역 유틸리티 메서드](./utils.md)
 - opt (TODO)
-- InputStreamReader, StringInputStreamReader, FileInputStreamReader, BufferedFileInputStreamReader (TODO)
 - InStream, inf, ouf, ans (TODO)
 - registerGen, registerInteraction (tout), registerValidation, registerTestlibCmd
 - [random_t](./random_t.md): 무작위 값 생성 및 전역 변수 `rnd`
