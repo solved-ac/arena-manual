@@ -13,7 +13,7 @@
 
 `expected`와 `result`의 오차가 일정 값 이하인지 확인합니다.
 
-`expected`와 `result`의 절대/상대 오차가 $\left(\texttt{MAX\_DOUBLE\_ERROR} + 10^{-15}_\mathbb{F}\right)_\mathbb{F}$ 이하인지 확인합니다.
+`expected`와 `result`의 절대/상대 오차가 $\left(\texttt{MAX\\_DOUBLE\\_ERROR} + 10^{-15}_\mathbb{F}\right)_\mathbb{F}$ 이하인지 확인합니다.
 
 `expected` 혹은 `result`가 $\text{NaN}$인 경우, 둘 모두 $\text{NaN}$인 경우에만 `true`를 반환합니다. `expected` 혹은 `result`가 $\pm \infty$인 경우, 둘 모두 $\pm \infty$이며 부호가 같은 경우에만 `true`를 반환합니다.
 
