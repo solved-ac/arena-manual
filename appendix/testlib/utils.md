@@ -2,6 +2,18 @@
 
 아래 메서드들은 전역으로 정의되며, checker, validator, interactor, generator 모두에서 사용할 수 있습니다.
 
+## 검증
+
+### ensuref
+
+- `inline void ensuref(bool cond, const char *format, ...)`
+- `cond`: 참이어야 하는 조건.
+- `format`, `...`: `printf` 스타일의 포맷 문자열 및 가변 인자.
+
+`cond`가 `true`일 것을 보장합니다.
+
+`cond`가 `false`인 경우, `format`을 포맷 문자열로 사용하여 `printf` 스타일의 메시지를 출력하고 `_fail` 결과로 종료합니다.
+
 ## 실수형
 
 ### doubleCompare
@@ -236,3 +248,7 @@ $\texttt{expected} > 10^{-9}_\mathbb{F}$라면, `expected`와 `result`의 절대
 또한, 인자가 2개인 경우이면서 두 인자가 모두 반복자라면, 마찬가지로 첫 번째 인자를 `begin`, 두 번째 인자를 `end`로 간주하여 `begin`..`end`의 구간에 있는 원소들을 출력합니다.
 
 `A`, `B`, `C`, `D`, `E`, `F`, `G`는 `operator<<(std::stringstream, T)`가 정의되어 있어야 합니다. 또한, 인자가 2개인 경우 중 앞서 언급한 특별한 경우에 대해서, 반복 또는 포인터가 가리키는 값 `T`에 대해서도 `operator<<(std::stringstream, T)`가 정의되어 있어야 합니다.
+
+## 채점 옵션 처리
+
+&rarr; [opt](./opt.md)

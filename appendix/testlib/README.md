@@ -5,12 +5,10 @@ testlib.h version `0.9.40-SNAPSHOT`
 ## 목차
 
 - [전역 유틸리티 메서드](./utils.md)
-- opt (TODO)
-- [InStream](./instream.md): 테스트와 답안의 입력 및 검증, 및 `inf`, `ouf`, `ans`
-- registerGen, registerInteraction (tout), registerValidation, registerTestlibCmd
-- [random_t](./random_t.md): 무작위 값 생성 및 전역 변수 `rnd`
+- [opt](./opt.md): generator 옵션 파싱.
+- [InStream](./instream.md): 테스트와 답안의 입력 및 검증, 및 `inf`, `ouf`, `ans`.
+- [random_t](./random_t.md): 무작위 값 생성 및 전역 변수 `rnd`.
 - [pattern](./pattern.md): 문자열 매칭 및 표현식.
-- TestlibFinalizeGuard (TODO)
 
 ## 정의
 
