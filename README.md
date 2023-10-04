@@ -16,7 +16,7 @@
 
 - [대회 준비](/pre-contest/README.md) (D-21)
   - [문제와 셋 구성](/pre-contest/problemset-construction.md)
-  - [디스크립션](/pre-contest/description.md)
+  - [디스크립션](/pre-contest/description/README.md)
   - [데이터 및 채점](/pre-contest/data/README.md)
   - [풀이 및 제한 설정](/pre-contest/solution/README.md) (TODO)
 - [대회 중](/in-contest/README.md)
