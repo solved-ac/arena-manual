@@ -14,12 +14,6 @@
 - 문자열, 해싱 (TODO: 소수 저격하지 않도록 함)
 - 무작위화 (TODO: 확률 계산)
 
-(TODO: Polygon 경고)
-
-(TODO: Checker: 공백 허용)
-
-(TODO: Stress tests)
-
 ## 데이터의 크기
 
 데이터의 총 용량은 1GB를 넘지 않도록 합니다.
@@ -49,7 +43,7 @@
 
 ## Polygon
 
-Generator, validator, checker 및 interactor 준비에는 Codeforces의  [Polygon 플랫폼](https://polygon.codeforces.com/)과 `testlib.h`를 사용해야 합니다.
+Generator, validator, checker 및 interactor 준비에는 Codeforces의 [Polygon 플랫폼](https://polygon.codeforces.com/)과 `testlib.h`를 사용해야 합니다.
 
 - 참고: [Codeforces: Briefly about testlib.h](https://codeforces.com/testlib)
 - 참고: [Codeforces: Generators with testlib.h](https://codeforces.com/blog/entry/18291)
@@ -80,6 +74,7 @@ Generator, validator, checker 및 interactor 준비에는 Codeforces의  [Polygo
 
 ### Generator 작성
 
+- 참고: [testlib.h 비공식 문서: Generator](/appendix/testlib/README.md#generator)
 - 참고: [Codeforces: Generators with testlib.h](https://codeforces.com/blog/entry/18291)
 
 - Multitest generator는 사용하면 안 됩니다.
@@ -96,13 +91,31 @@ Generator, validator, checker 및 interactor 준비에는 Codeforces의  [Polygo
     int b = opt<int>("b");
     int t = opt<int>("t");
     ```
+  - 참고: [testlib.h 비공식 문서: opt](/appendix/testlib/opt.md)
 
 ### Validator 작성
 
+- 참고: [testlib.h 비공식 문서: Validator](/appendix/testlib/README.md#validator)
 - 참고: [Codeforces: Validators with testlib.h](https://codeforces.com/blog/entry/18426)
 
-Validator는 문제 패키지에서 가장 실수가 발생하기 쉬운 곳 중 하나로, **검수 및 실수 탐지의 용이성을 제1 목표로 두고** 작성해야 합니다.
+Validator는 문제 패키지에서 가장 실수가 발생하기 쉽고, 실수가 발생했을 때의 영향이 큰 곳 중 하나로, **검수 및 실수 탐지의 용이성을 제1 목표로 두고** 작성해야 합니다.
 
+- Validator는 C 혹은 C++로 작성해야 합니다.
+- Validator 코드에서는 `#define`을 사용하면 안 됩니다.
+  - 타입 재정의를 사용하려는 경우, `using` 또는 `typedef`를 사용합니다.
+  - **안 좋은 예 1)** 아래와 같은 매크로 사용은 코드를 큰 폭으로 바꾸지만 모두에게 익숙하지 않고, 이로 인해 코드 해석의 시간 및 실수 가능성이 증가될 수 있으므로 사용하면 안 됩니다.
+    ```cpp
+    #define rep(a, b) for (int i = (a); i < (b); i++)
+    #define all(v) (v).begin(), (v).end()
+    ```
+  - **안 좋은 예 2)** 아래와 같은 매크로는 이미 많은 사람이 학습한 기호를 재정의하여 혼선이 발생할 수 있으므로 사용하면 안 됩니다.
+    ```cpp
+    #define int long long
+    ```
+  - **좋은 예)**
+    ```cpp
+    using ll = long long;
+    ```
 - Validator 코드에 수(특히 제한)를 적는 경우, 지문에 적은 대로 적습니다. 1,000 단위 구분 기호를 적극적으로 사용합니다(UCPC 가이드라인을 따르는 지문의 경우 지문에 이미 1,000 단위 구분 기호가 있을 것입니다).
   - **예 1)** $1 \le N \le 100\\,000$ &rarr; `inf.readInt(1, 100'000, "N")`
   - **예 2)** $1 \le N \le 10^9$ &rarr; `inf.readInt(1, 1e9, "N")`
@@ -113,12 +126,16 @@ Validator는 문제 패키지에서 가장 실수가 발생하기 쉬운 곳 중
   - **좋은 예 1)** $1 \le N \le 1\\,000$ &rarr; `inf.readInt(1, 1'000, "N")`
   - **좋은 예 2)** $1 \le a_{ij} \le 10^6$ &rarr; `inf.readInt(1, 1e6, "a_ij")`
   - **좋은 예 3)** $1 \le a_{ij} \le 10^6$ &rarr; `inf.readInt(1, 1e6, format("a_(%d,%d)", i, j))`
-- 작성 중
 
 ### Checker 작성
 
-참고: [Codeforces: Checkers with testlib.h](https://codeforces.com/blog/entry/18431)
+- 참고: [testlib.h 비공식 문서: Checker](/appendix/testlib/README.md#checker)
+- 참고: [Codeforces: Checkers with testlib.h](https://codeforces.com/blog/entry/18431)
 
+Checker도 실수의 영향이 굉장히 큰 곳입니다. 검수 및 실수 탐지의 용이성을 고려하여 작성하되, 맞는 소스를 틀리다고 판정할 가능성은 없는지 꼼꼼히 점검하면서 작성하는 것이 무엇보다 중요합니다.
+
+- Checker는 C 혹은 C++로 작성해야 합니다.
+- Checker 코드에서는 `#define`을 사용하면 안 됩니다.
 - BOJ의 스페셜 저지 기능을 사용하지 않으려는 경우, Polygon에서 checker는 `wcmp.cpp`로 정합니다.
   - 참고: [BOJ Help: 채점 결과#출력 형식이 잘못되었습니다](https://help.acmicpc.net/judge/info)
 - Checker는 줄 끝 공백에 대하여 관대하여야 합니다.
@@ -128,7 +145,7 @@ Validator는 문제 패키지에서 가장 실수가 발생하기 쉬운 곳 중
   - `readEoln()`
   - `readEof()`
   - `readSpace()`
-  - 참고: 부록: Checker 작성 패턴 (TODO)
+  - 참고: [testlib.h 비공식 문서: InStream/Strict Mode](/appendix/testlib/instream.md#strict-mode)
 - Checker는 참가자의 정답이 출제자의 정답보다 효율적인(정해가 틀리는) 사고가 발생할 가능성이 있음을 인지하고, `_fail` 판정을 사용하여야 합니다.
 
 ## 점검 사항
