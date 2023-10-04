@@ -4,6 +4,15 @@
 
 ## 검증
 
+### ensure
+
+- `#define ensure(cond)`
+- `cond`: 참이어야 하는 조건.
+
+`cond`가 `true`일 것을 보장합니다.
+
+자세한 이유를 명시하기 위하여 [`ensuref`](#ensuref)를 사용하는 것이 좋습니다.
+
 ### ensuref
 
 - `inline void ensuref(bool cond, const char *format, ...)`
@@ -12,7 +21,46 @@
 
 `cond`가 `true`일 것을 보장합니다.
 
-`cond`가 `false`인 경우, `format`을 포맷 문자열로 사용하여 `printf` 스타일의 메시지를 출력하고 `_fail` 결과로 종료합니다.
+`cond`가 `false`인 경우, `format`을 포맷 문자열로 사용하여 `printf` 스타일의 메시지를 출력하고 [`_fail`](tresult.md#_fail) 결과로 종료합니다.
+
+## 채점
+
+### quit
+
+- `void quit(TResult result, const std::string &msg)`
+- `void quit(TResult result, const char *msg)`
+- `result`: 채점 결과.
+- `msg`: 메시지.
+
+채점을 `result` 결과로 종료합니다. (참고: [TResult](tresult.md))
+
+포맷 문자열을 사용하고자 하는 경우, [`quitf`](#quitf)를 사용하는 것이 좋습니다.
+
+### quitp
+
+- `void quitp(F points, const char *format, ...)`
+- `F`: 점수의 자료형.
+- `points`: 채점 결과 참가자가 획득한 점수.
+- `format`, `...`: `printf` 스타일의 포맷 문자열 및 가변 인자.
+
+채점을 `points`의 점수를 획득한 것으로 하여 종료합니다.
+
+### quitf
+
+- `void quitf(TResult result, const char *msg, ...)`
+- `result`: 채점 결과.
+- `msg`, `...`: `printf` 스타일의 포맷 문자열 및 가변 인자.
+
+채점을 `result` 결과로 종료합니다. (참고: [TResult](tresult.md))
+
+### quitif
+
+- `void quitif(bool condition, TResult result, const char *format, ...)`
+- `condition`: 채점을 종료할지 여부.
+- `result`: 채점 결과.
+- `format`, `...`: `printf` 스타일의 포맷 문자열 및 가변 인자.
+
+`condition`이 `true`인 경우, 채점을 `result` 결과로 종료합니다. (참고: [TResult](tresult.md))
 
 ## 실수형
 

@@ -8,13 +8,15 @@ testlib.h version `0.9.40-SNAPSHOT`
 - [Generator](#generator): 출제자 입력 생성기.
 - [Validator](#validator): 출제자 입력 검증기.
 - [Checker](#checker): 참가자 답안 검증기.
-- Interactor: 참가자 답안과 테스트의 상호작용.
+- Interactor: 참가자 답안과 테스트의 상호작용. (TODO)
 - 메서드
   - [전역 유틸리티 메서드](./utils.md)
   - [InStream](./instream.md): 테스트와 답안의 입력 및 검증, 및 `inf`, `ouf`, `ans`.
   - [opt](./opt.md): generator 옵션 파싱.
   - [random_t](./random_t.md): 무작위 값 생성 및 전역 변수 `rnd`.
   - [pattern](./pattern.md): 문자열 매칭 및 표현식.
+- 타입
+  - [TResult](./tresult.md): 채점 결과.
 - [참고](#참고)
 
 ## 정의
@@ -145,7 +147,11 @@ int main(int argc, char *argv[]) {
 
 Checker는 참가자의 답안이 정답인지 검증하는 프로그램입니다. Checker는 `inf`, `ans`와 `ouf`를 이용해 출제자가 준비한 테스트 케이스와 출제자의 답안, 그리고 참가자의 답안을 읽어들입니다. `main`의 첫 줄에 `registerTestlibCmd(argc, argv)`를 추가해 주어야 합니다.
 
-참가자의 입력은 validator에서 출제자의 입력을 검증하던 것보다는 덜 엄격하게 검증해도 괜찮습니다. 오히려 덜 업격하게 검증하는 것이 권장됩니다. 예를 들어, 5개의 정수 1, 2, 3, 4, 5를 공백으로 구분하여 출력할 때 참가자가 `1 2 3 4 5 `와 같이 출력했다면, 맨 뒤의 띄어쓰기가 있더라도 정답으로 처리합니다. 일반적으로 checker에서는 [`readEoln`](instream.md#instreamreadeoln), [`readSpace`](instream.md#instreamreadspace), [`readEof`](instream.md#instreamreadeof) 등을 사용하지 않고, 토큰 단위로만 읽습니다. 다만, 참가자가 불필요한 토큰을 추가로 출력하는 경우가 있는지를 [`seekEof`](instream.md#instreamseekeof)로 검증하여야 합니다.
+참가자의 입력은 validator에서 출제자의 입력을 검증하던 것보다는 덜 엄격하게 검증해도 괜찮습니다. 오히려 덜 업격하게 검증하는 것이 권장됩니다. 예를 들어, 5개의 정수 1, 2, 3, 4, 5를 공백으로 구분하여 출력할 때 참가자가 `1 2 3 4 5 `와 같이 출력했다면, 맨 뒤의 띄어쓰기가 있더라도 정답으로 처리합니다.
+
+일반적으로 checker에서는 [`readEoln`](instream.md#instreamreadeoln), [`readSpace`](instream.md#instreamreadspace), [`readEof`](instream.md#instreamreadeof) 등을 사용하지 않고, 토큰 단위로만 읽습니다.
+
+채점이 완료된 후 토큰이 남아 있을 경우 [`_pe`](tresult.md#_pe)로 자동 종료되므로, 출력 형식에 정의한 대로 참가자의 출력의 모든 토큰을 읽어야 하며, 일부 토큰만 읽고 도중 종료하면 안 됩니다. 같은 이유로, 참가자의 입력에 토큰이 남아 있는지를 검증할 필요는 없습니다. (참고: [`_dirt`](tresult.md#_dirt))
 
 예를 들어, [BOJ 1008](https://www.acmicpc.net/problem/1008) 〈A/B〉의 checker는 [`doubleCompare`](utils.md#doublecompare)를 사용하여 아래와 같이 작성할 수 있습니다.
 
@@ -155,12 +161,10 @@ int main(int argc, char *argv[]) {
 
     // Participant answer
     double pans = ouf.readDouble();
-    if (ouf.seekEof()) {
-        quitf(_wa, "Extra tokens found in participant's answer");
-    }
 
     // Jury answer
     double jans = ans.readDouble();
+
     if (doubleCompare(jans, pans, 1e-9)) {
         quitf(_ok, "OK %lf", pans);
     } else {
@@ -169,7 +173,8 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-- 참고: [InStream](instream.md), [Strict mode](instream.md#strict-mode)
+- 참고: [InStream](instream.md), [Strict mode](instream.md#strict-mode), [TResult](tresult.md)
+- 참고: [doubleCompare](utils.md#doublecompare)
 
 ## 참고
 

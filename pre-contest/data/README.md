@@ -146,7 +146,11 @@ Checker도 실수의 영향이 굉장히 큰 곳입니다. 검수 및 실수 탐
   - `readEof()`
   - `readSpace()`
   - 참고: [testlib.h 비공식 문서: InStream/Strict Mode](/appendix/testlib/instream.md#strict-mode)
-- Checker는 참가자의 정답이 출제자의 정답보다 효율적인(정해가 틀리는) 사고가 발생할 가능성이 있음을 인지하고, `_fail` 판정을 사용하여야 합니다.
+- Checker는 참가자의 정답이 출제자의 정답보다 효율적인(정해가 틀리는) 사고가 발생할 가능성이 있음을 인지하고, [`_fail`](/appendix/testlib/tresult.md#_fail) 판정을 사용하여야 합니다.
+
+## 정해
+
+(TODO)
 
 ## 점검 사항
 
