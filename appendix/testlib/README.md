@@ -99,7 +99,7 @@ int main(int argc, char* argv[]) {
     // Line #1
     int N = inf.readInt(1, 100'000, "N");
     inf.readSpace();
-    long long X = inf.readLong(1, (long long) 1e18, "X");
+    long long X = inf.readLong(1, (long long) 1e18l, "X");
     inf.readEoln();
 
     // Line #2
@@ -109,6 +109,8 @@ int main(int argc, char* argv[]) {
     inf.readEof();
 }
 ```
+
+- `1e18l` 대신 `1e18`로 적어도 문제는 없으나, `1e18` 정도의 크기의 값은 `double`이 정확히 표현할 수 없음에 주의합니다($10^{18}>10^{16}>2^{53}$). $10^{15}$ 이상의 값에서는 `l` 접미사를 붙여 `long double` 리터럴로 취급하는 것을 권장합니다.
 
 Validator는 문제의 제한을 만족함을 검증하기 위하여 복잡한 로직을 포함할 수도 있습니다. 예를 들어, [BOJ 28436](https://www.acmicpc.net/problem/28436) 〈돌 옮기기〉는 `W`, `B`, `.`으로만 이루어진 문자열을 입력받고, 이 문자열에 `W` 및 `B`가 적어도 하나 이상 존재함을 검증해야 합니다. 이때의 validator는 다음과 같이 작성할 수 있습니다.
 
