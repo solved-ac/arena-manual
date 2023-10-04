@@ -120,7 +120,7 @@ int main(int argc, char *argv[]) {
     inf.readEoln();
 
     while (T--) {
-        string s = inf.readToken("[WB\\.]{2,500000}", "s");
+        string s = inf.readToken("[WB.]{2,500000}", "s");
         inf.readEoln();
 
         ensuref(
