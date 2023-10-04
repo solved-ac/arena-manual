@@ -141,7 +141,7 @@ int main(int argc, char *argv[]) {
 
 - 참고: [InStream](instream.md), [pattern](pattern.md), [ensuref](utils.md#ensuref)
 
-### Checker
+## Checker
 
 > BOJ Stack에서 checker는 [스페셜 저지]에 대응됩니다.
 
@@ -151,7 +151,7 @@ Checker는 참가자의 답안이 정답인지 검증하는 프로그램입니�
 
 일반적으로 checker에서는 [`readEoln`](instream.md#instreamreadeoln), [`readSpace`](instream.md#instreamreadspace), [`readEof`](instream.md#instreamreadeof) 등을 사용하지 않고, 토큰 단위로만 읽습니다.
 
-채점이 완료된 후 토큰이 남아 있을 경우 [`_pe`](tresult.md#_pe)로 자동 종료되므로, 출력 형식에 정의한 대로 참가자의 출력의 모든 토큰을 읽어야 하며, 일부 토큰만 읽고 도중 종료하면 안 됩니다. 같은 이유로, 참가자의 입력에 토큰이 남아 있는지를 검증할 필요는 없습니다. (참고: [`_dirt`](tresult.md#_dirt))
+채점이 완료된 후 토큰이 남아 있을 경우 [`_pe`](tresult.md#_pe)로 자동 종료되므로, 출력 형식에 정의한 대로 참가자의 출력의 모든 토큰을 읽어야 하며, 일부 토큰만 읽고 도중 종료하면 안 됩니다. 같은 이유로, 참가자의 입력에 토큰이 남아 있는지를 검증할 필요는 없습니다. (참고: [`_dirt`](tresult.md#))
 
 예를 들어, [BOJ 1008](https://www.acmicpc.net/problem/1008) 〈A/B〉의 checker는 [`doubleCompare`](utils.md#doublecompare)를 사용하여 아래와 같이 작성할 수 있습니다.
 

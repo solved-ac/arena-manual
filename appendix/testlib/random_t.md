@@ -2,6 +2,35 @@
 
 - 해당 내용: **Generator**
 
+## 목차
+
+- [목차](#목차)
+- [일반](#일반)
+  - [rnd](#rnd)
+  - [random\_t::setSeed](#random_tsetseed)
+- [무작위 생성](#무작위-생성)
+  - [random\_t::next(std::string)](#random_tnextstdstring)
+  - [random\_t::next(integer)](#random_tnextinteger)
+  - [random\_t::next(integer, integer)](#random_tnextinteger-integer)
+  - [random\_t::next()](#random_tnext)
+  - [random\_t::next(double)](#random_tnextdouble)
+  - [random\_t::next(double, double)](#random_tnextdouble-double)
+  - [random\_t::any](#random_tany)
+- [가중 무작위 생성](#가중-무작위-생성)
+  - [random\_t::wnext(type)](#random_twnexttype)
+  - [random\_t::wnext(double, type)](#random_twnextdouble-type)
+  - [random\_t::wnext(integer, type)](#random_twnextinteger-type)
+  - [random\_t::wnext(integer, integer, type)](#random_twnextinteger-integer-type)
+  - [random\_t::wany](#random_twany)
+- [배열 생성](#배열-생성)
+  - [random\_t::perm](#random_tperm)
+  - [random\_t::distinct](#random_tdistinct)
+  - [random\_t::partition](#random_tpartition)
+- [전역 유틸리티 메서드](#전역-유틸리티-메서드)
+  - [shuffle](#shuffle)
+
+## 일반
+
 ### rnd
 
 - `random_t rnd`

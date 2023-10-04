@@ -2,6 +2,43 @@
 
 아래 메서드들은 전역으로 정의되며, checker, validator, interactor, generator 모두에서 사용할 수 있습니다.
 
+## 목차
+
+- [목차](#목차)
+- [검증](#검증)
+  - [ensure](#ensure)
+  - [ensuref](#ensuref)
+- [채점](#채점)
+  - [quit](#quit)
+  - [quitp](#quitp)
+  - [quitf](#quitf)
+  - [quitif](#quitif)
+- [실수형](#실수형)
+  - [doubleCompare](#doublecompare)
+  - [doubleDelta](#doubledelta)
+- [문자열](#문자열)
+  - [compress](#compress)
+  - [format](#format)
+  - [isBlanks](#isblanks)
+  - [isEof](#iseof)
+  - [isEoln](#iseoln)
+  - [join](#join)
+  - [lowerCase](#lowercase)
+  - [split](#split)
+  - [toHumanReadableString](#tohumanreadablestring)
+  - [tokenize](#tokenize)
+  - [toString](#tostring)
+  - [trim](#trim)
+  - [vtos](#vtos)
+  - [upperCase](#uppercase)
+- [수와 문자열](#수와-문자열)
+  - [englishEnding](#englishending)
+  - [equals](#equals)
+  - [removeDoubleTrailingZeroes](#removedoubletrailingzeroes)
+- [출력](#출력)
+  - [println](#println)
+- [채점 옵션 처리](#채점-옵션-처리)
+
 ## 검증
 
 ### ensure
