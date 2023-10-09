@@ -8,7 +8,7 @@ testlib.h version `0.9.40-SNAPSHOT`
 - [Generator](#generator): 출제자 입력 생성기.
 - [Validator](#validator): 출제자 입력 검증기.
 - [Checker](#checker): 참가자 답안 검증기.
-- Interactor: 참가자 답안과 테스트의 상호작용. (TODO)
+- [Interactor](#interactor): 참가자 답안과 테스트의 상호작용.
 - 메서드
   - [전역 유틸리티 메서드](./utils.md)
   - [InStream](./instream.md): 테스트와 답안의 입력 및 검증, 및 `inf`, `ouf`, `ans`.
@@ -183,6 +183,82 @@ int main(int argc, char *argv[]) {
 
 - 참고: [InStream](instream.md), [Strict mode](instream.md#strict-mode), [TResult](tresult.md)
 - 참고: [doubleCompare](utils.md#doublecompare)
+
+## Interactor
+
+> BOJ Stack에 interactor를 올리기 위해서는 스타트링크에 별도로 문의해야 합니다.
+
+Interactor는 인터랙티브 문제에서 참가자의 프로그램과 상호작용을 하는 프로그램입니다. Interactor는 우선 `inf`를 통해 출제자의 테스트 케이스를 읽어들인 후, `ouf`를 통해 참가자의 프로그램의 출력을 읽고 `std::cout`을 통해 다시 입력을 전달하는 상호작용을 반복합니다. `main`의 첫 줄에 `registerInteraction(argc, argv)`를 추가해 주어야 합니다.
+
+`ouf`를 읽을 때에는 checker와 동일하게 토큰 단위로 읽는 것이 권장됩니다. `cout`으로 한 줄을 출력한 후에는 반드시 `endl`이나 `cout.flush()` 등을 이용하여 출력 스트림을 flush하여야 합니다.
+
+### Checker를 같이 사용하는 경우
+
+Interactor는 추가적인 검증이 필요한 정보를 `tout`으로 출력할 수 있습니다. `tout`으로 출력한 파일은 checker에서 `ouf`로 읽게 됩니다. 출제자의 답안에 의해 작성된 `tout`은 interactor와 checker에서 `ans`를 통해 읽을 수 있습니다. 참가자의 코드는 interactor와 checker에서 모두 `_ac`를 받아야 통과합니다.
+
+`tout`은 `cout`과 같은 방식으로 동작하며, `tout << n << endl;`과 같이 쓸 수 있습니다.
+
+### Checker를 사용하지 않는 경우
+
+인터랙티브 문제를 만들 때, 별도의 checker 없이 모든 채점을 interactor 내에서 하게 되는 경우가 많습니다. 이런 경우에도 Polygon에서는 checker가 없으면 채점이 진행되지 않기 때문에, 다음과 같은 dummy checker를 사용할 수 있습니다.
+
+```cpp
+#include "testlib.h"
+
+int main(int argc, char** argv) {
+    registerTestlibCmd(argc, argv);
+    while (!ouf.seekEof()) {
+        ouf.readToken("[!-~]+", "dummy");
+    }
+    quitf(_ok, "OK");
+    return 0;
+}
+```
+
+### 문제 예시
+
+> 1 이상 15 이하의 정수를 알아맞혀 보자.
+>
+> 다음을 한 줄에 출력하여 인터랙터에게 쿼리를 할 수 있다. 쿼리는 최대 4번까지 할 수 있다.
+>
+> * `n`: 숨겨진 값이 $n$인지 질문한다. ($1 \le n \le 15$)
+>
+> 쿼리의 결과는 한 줄을 입력받아 알 수 있다. 가능한 결과는 다음과 같다.
+>
+> * `-1`: 숨겨진 값은 $n$보다 작다.
+> * `0`: 숨겨진 값은 $n$과 같다.
+> * `1`: 숨겨진 값은 $n$보다 크다.
+>
+> `0`의 결과를 받았다면 성공적으로 숨겨진 값을 찾은 것이다. 이 경우에는 더 이상 쿼리를 출력하지 않고 즉시 프로그램을 종료해야 한다.
+
+이 문제의 interactor는 다음과 같이 작성할 수 있습니다. 테스트 케이스 파일에는 숨겨진 정수가 들어 있습니다.
+
+```cpp
+#include "testlib.h"
+
+int main(int argc, char** argv) {
+    registerInteraction(argc, argv);
+    int hidden = inf.readInt();
+    bool found = false;
+    for (int tries = 0; tries < 4; tries++) {
+        int guess = ouf.readInt(1, 15);
+        if (hidden > guess) {
+            cout << 1 << endl;
+        } else if (hidden == guess) {
+            cout << 0 << endl;
+            found = true;
+            break;
+        } else {
+            cout << -1 << endl;
+        }
+    }
+    if (!found) {
+        quitf(_wa, "failed to find the hidden number");
+    }
+    quitf(_ok, "found the hidden number");
+    return 0;
+}
+```
 
 ## 참고
 
