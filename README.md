@@ -18,7 +18,7 @@
   - [문제와 셋 구성](/pre-contest/problemset-construction.md)
   - [디스크립션](/pre-contest/description/README.md)
   - [데이터 및 채점](/pre-contest/data/README.md)
-  - [풀이 및 제한 설정](/pre-contest/solution/README.md) (TODO)
+  - [풀이 및 제한 설정](/pre-contest/solution/README.md)
 - [대회 중](/in-contest/README.md)
   - 질문과 답변 (TODO)
   - 데이터 점검 (TODO)
