@@ -26,4 +26,4 @@
   - 에디토리얼 (TODO)
 - [부록](/appendix/README.md)
   - [testlib.h 비공식 문서](/appendix/testlib/README.md)
-  - [참고할 만한 링크](/appendix/README.md#참고할 만한 링크)
+  - [참고할 만한 링크](/appendix/README.md#참고할_만한_링크)
