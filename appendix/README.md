@@ -33,10 +33,9 @@
 
 ### Polygon 및 testlib.h
 
-- Darkkcyan blog, [_Polygon.Codeforces Tutorial - A Guide to Problem Preparation_](https://quangloc99.github.io/posts/polygon-codeforces-tutorial/),
+- Darkkcyan blog, [_Polygon.Codeforces Tutorial - A Guide to Problem Preparation_](https://quangloc99.github.io/posts/polygon-codeforces-tutorial/), Tran [quangloc99](https://quangloc99.github.io/) Quang Loc, 2021년 7월 25일
 - 티스토리, [《시리즈: Polygon》](https://evenharder.tistory.com/category/Polygon), [evenharder](https://evenharder.tistory.com/), 2015년 7월 22일
 - SW 멤버십 기술 블로그, [《testlib 사용하기》](https://infossm.github.io/blog/2021/05/14/testlib/) ([GitHub](https://github.com/infossm/infossm.github.io/blob/master/_posts/2021-05-14-testlib.md)), [djm01378](https://infossm.github.io/authors/djm03178/), 2021년 5월 14일
-  Tran [quangloc99](https://quangloc99.github.io/) Quang Loc, 2021년 7월 25일
 
 ### 출제 경험
 
