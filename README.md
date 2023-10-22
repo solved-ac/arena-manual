@@ -21,7 +21,7 @@
   - [풀이 및 제한 설정](/pre-contest/solution/README.md)
 - [대회 중](/in-contest/README.md)
   - [질문과 답변](/in-contest/qna.md)
-  - [데이터 점검](/in-contest/data-check.md)
+  - [제출 및 데이터 점검](/in-contest/data-check.md)
 - [대회 종료 후](/post-contest/README.md)
   - 에디토리얼 (TODO)
 - [부록](/appendix/README.md)
