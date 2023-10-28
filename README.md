@@ -23,7 +23,7 @@
   - [질문과 답변](/in-contest/qna.md)
   - [제출 및 데이터 점검](/in-contest/data-check.md)
 - [대회 종료 후](/post-contest/README.md)
-  - 에디토리얼 (TODO)
+  - [에디토리얼](/post-contest/editorial.md)
 - [부록](/appendix/README.md)
   - [testlib.h 비공식 문서](/appendix/testlib/README.md)
   - [참고할 만한 링크](/appendix/README.md#참고할_만한_링크)
