@@ -40,7 +40,7 @@
 
 데이터의 총 용량은 1GB를 넘지 않도록 합니다.
 
-> **Note**
+> [!Note]
 > 데이터의 총 용량은 BOJ에서 '채점 준비 중'이 표시되는 시간과 관련이 있습니다. BOJ에서 1GB의 데이터를 처리하는 데에는 경험적으로 ~5초가 소요되는 것으로 알려져 있습니다.
 
 ## 데이터의 개수
@@ -54,7 +54,7 @@
 | Gold          | &le; 5분     |
 | &ge; Platinum | &le; 15분    |
 
-> **Note**
+> [!Note]
 > \# &times; TL이 커질수록 제출 하나의 채점에 걸리는 시간이 늘어나며, 채점 큐가 밀릴 가능성이 있습니다.
 
 ### 참가 하한 Unrated에서
@@ -75,10 +75,18 @@ Generator, validator, checker 및 interactor 준비에는 Codeforces의 [Polygon
 - 참고: [Codeforces: Interactors with testlib.h](https://codeforces.com/blog/entry/18455)
 - 참고: [Codeforces: Checkers with testlib.h](https://codeforces.com/blog/entry/18431)
 
+### 경고 해결
+
+Polygon 패키지에는 no tags, no statement 등을 포함한 모든 경고가 없어야 합니다. 단, 다음 예외를 허용합니다.
+1. Solution '`<solution>`' uses unusual int128-like type on the line `<n>`
+2. Lack `<equation>` in section `<section>` of `<language>` statement
+3. Do not use the phrase "space-separated" unless it is really needed.
+
+> [!Caution]
+> (2)번 경고의 경우 직접 꼼꼼하게 지문을 확인하여야 합니다.
+  
 ### 공통
 
-- **(경고 해결)** Polygon 패키지에는 no tags, no statement 등을 포함한 모든 경고가 없어야 합니다. 단, 다음 예외를 허용합니다.
-  - Solution '`<solution>`' uses unusual int128-like type on the line `<n>`
 - **(간결한 소스 코드)** Polygon에 작성하는 모든 코드는 검수에 용이하도록 매크로 등을 사용하지 말고 최대한 간결하게 작성합니다.
   - 매크로 및 템플릿의 사용은 다른 검수자가 이를 이해하는 데에 어려움을 주고, 검수 미비로 이어질 가능성이 높기 때문에 지양되어야 합니다.
   - 복잡한 로직은 최대한 많은 함수로 쪼갭니다.
@@ -158,7 +166,7 @@ Validator는 문제 패키지에서 가장 실수가 발생하기 쉽고, 실수
 
 Checker도 실수의 영향이 굉장히 큰 곳입니다. 검수 및 실수 탐지의 용이성을 고려하여 작성하되, 맞는 소스를 틀리다고 판정할 가능성은 없는지 꼼꼼히 점검하면서 작성하는 것이 무엇보다 중요합니다.
 
-> **Important**
+> [!Important]
 > 출력 형식이 중요한 문제가 아닐 경우 Checker에서 출력 형식을 검증해서는 안 됩니다. 본 매뉴얼은 일반적인 경우에서 `1 2 3`과 `1\n2\n3`을 같은 의미를 가지는 출력으로 보도록 하고 있습니다.
 >
 > BOJ는 기본적으로 줄 끝 공백을 허용하는 등 출력 형식에 엄격하지 않습니다. 이를 checker로 직접 구현하기는 다소 번거로우며, 보통 입출력 형식을 지키는 것 자체가 문제에서 물어보고자 하는 핵심 스킬인 경우는 드뭅니다. 따라서 아레나는 출력 형식 검증이 중요하지 않다고 보고 있습니다.
