@@ -80,6 +80,7 @@ Generator, validator, checker 및 interactor 준비에는 Codeforces의 [Polygon
 Polygon 패키지에는 no tags, no statement 등을 포함한 모든 경고가 없어야 합니다. 단, 다음 예외를 허용합니다.
 1. Solution '`<solution>`' uses unusual int128-like type on the line `<n>`
 2. Lack `<equation>` in section `<section>` of `<language>` statement
+3. Lack cursive font substrings in section `<section>` of `<language>` statement
 
 > [!Caution]
 > (2)번 경고의 경우 직접 꼼꼼하게 지문을 확인하여야 합니다.
